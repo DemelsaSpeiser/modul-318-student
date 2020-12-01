@@ -17,17 +17,14 @@ namespace SwissTransportArbeit
     {
       InitializeComponent();
     }
-    // Variable für Startstation
-    // Variable für Endstation
-    // Variable für Verbindung
-    // Transport Klasse instantierung
-    // Ausgabe der Verbindungen
 
+    // Variable für Startstation
     string Von;
+    // Variable für Endstation
     string Nach;
+    // Variablen für Verbindung
     Transport Datenzugriff;
     Connections Verbindungen;
-    string Ausgabe;
     Connection aktVerbindung;
 
     private void BtnGo_Click(object sender, EventArgs e)
@@ -46,9 +43,23 @@ namespace SwissTransportArbeit
         // Mithilfe von i auf die einzelnen Verbindungen zugreifen
         aktVerbindung = Verbindungen.ConnectionList[i];
         // Ausgabe
-        lbxAusgabe.Items.Add(aktVerbindung.From.Station.Name + " " + aktVerbindung.To.Station.Name);
+        lbxAusgabeVon.Items.Add(aktVerbindung.From.Station.Name); // Startpunkt
+        lbxAusgabeNach.Items.Add(aktVerbindung.To.Station.Name);  // Zielpunkt
+        lbxZeitVon.Items.Add(Convert.ToDateTime(aktVerbindung.From.Departure).ToString("HH:mm")); // Abfahrtszeit
+        lbxZeitNach.Items.Add(Convert.ToDateTime(aktVerbindung.To.Arrival).ToString("HH:mm"));    // Ankunftszeit
       }
 
+    }
+
+    // Eingaben bereinigen
+    private void BtnClear_Click(object sender, EventArgs e)
+    {
+      lbxAusgabeNach.Items.Clear();
+      lbxAusgabeVon.Items.Clear();
+      lbxZeitNach.Items.Clear();
+      lbxZeitVon.Items.Clear();
+      txtVon.ResetText();
+      txtNach.ResetText();
     }
   }
 }

@@ -28,32 +28,22 @@
     /// </summary>
     private void InitializeComponent()
     {
-      this.label1 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
       this.label3 = new System.Windows.Forms.Label();
-      this.label4 = new System.Windows.Forms.Label();
-      this.label5 = new System.Windows.Forms.Label();
       this.txtVon = new System.Windows.Forms.TextBox();
       this.txtNach = new System.Windows.Forms.TextBox();
-      this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-      this.txtTime = new System.Windows.Forms.TextBox();
-      this.lbxAusgabe = new System.Windows.Forms.ListBox();
+      this.lbxAusgabeVon = new System.Windows.Forms.ListBox();
       this.btnGo = new System.Windows.Forms.Button();
+      this.lbxAusgabeNach = new System.Windows.Forms.ListBox();
+      this.lbxZeitNach = new System.Windows.Forms.ListBox();
+      this.lbxZeitVon = new System.Windows.Forms.ListBox();
+      this.btnClear = new System.Windows.Forms.Button();
       this.SuspendLayout();
-      // 
-      // label1
-      // 
-      this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(361, 23);
-      this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(92, 13);
-      this.label1.TabIndex = 0;
-      this.label1.Text = "Transport App ÖV";
       // 
       // label2
       // 
       this.label2.AutoSize = true;
-      this.label2.Location = new System.Drawing.Point(27, 69);
+      this.label2.Location = new System.Drawing.Point(13, 15);
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(26, 13);
       this.label2.TabIndex = 1;
@@ -62,92 +52,100 @@
       // label3
       // 
       this.label3.AutoSize = true;
-      this.label3.Location = new System.Drawing.Point(27, 107);
+      this.label3.Location = new System.Drawing.Point(13, 53);
       this.label3.Name = "label3";
       this.label3.Size = new System.Drawing.Size(33, 13);
       this.label3.TabIndex = 2;
       this.label3.Text = "Nach";
       // 
-      // label4
-      // 
-      this.label4.AutoSize = true;
-      this.label4.Location = new System.Drawing.Point(27, 149);
-      this.label4.Name = "label4";
-      this.label4.Size = new System.Drawing.Size(38, 13);
-      this.label4.TabIndex = 3;
-      this.label4.Text = "Datum";
-      // 
-      // label5
-      // 
-      this.label5.AutoSize = true;
-      this.label5.Location = new System.Drawing.Point(27, 179);
-      this.label5.Name = "label5";
-      this.label5.Size = new System.Drawing.Size(25, 13);
-      this.label5.TabIndex = 4;
-      this.label5.Text = "Zeit";
-      // 
       // txtVon
       // 
-      this.txtVon.Location = new System.Drawing.Point(98, 66);
+      this.txtVon.AutoCompleteCustomSource.AddRange(new string[] {
+            "Luzern"});
+      this.txtVon.Location = new System.Drawing.Point(84, 12);
       this.txtVon.Name = "txtVon";
       this.txtVon.Size = new System.Drawing.Size(100, 20);
-      this.txtVon.TabIndex = 5;
+      this.txtVon.TabIndex = 1;
       // 
       // txtNach
       // 
-      this.txtNach.Location = new System.Drawing.Point(98, 104);
+      this.txtNach.AutoCompleteCustomSource.AddRange(new string[] {
+            "Emmenbrücke"});
+      this.txtNach.Location = new System.Drawing.Point(84, 50);
       this.txtNach.Name = "txtNach";
       this.txtNach.Size = new System.Drawing.Size(100, 20);
-      this.txtNach.TabIndex = 6;
+      this.txtNach.TabIndex = 2;
       // 
-      // dateTimePicker1
+      // lbxAusgabeVon
       // 
-      this.dateTimePicker1.Location = new System.Drawing.Point(98, 143);
-      this.dateTimePicker1.Name = "dateTimePicker1";
-      this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-      this.dateTimePicker1.TabIndex = 7;
-      // 
-      // txtTime
-      // 
-      this.txtTime.Location = new System.Drawing.Point(98, 176);
-      this.txtTime.Name = "txtTime";
-      this.txtTime.Size = new System.Drawing.Size(100, 20);
-      this.txtTime.TabIndex = 8;
-      // 
-      // lbxAusgabe
-      // 
-      this.lbxAusgabe.FormattingEnabled = true;
-      this.lbxAusgabe.Location = new System.Drawing.Point(78, 246);
-      this.lbxAusgabe.Name = "lbxAusgabe";
-      this.lbxAusgabe.Size = new System.Drawing.Size(617, 173);
-      this.lbxAusgabe.TabIndex = 9;
+      this.lbxAusgabeVon.FormattingEnabled = true;
+      this.lbxAusgabeVon.Location = new System.Drawing.Point(156, 246);
+      this.lbxAusgabeVon.Name = "lbxAusgabeVon";
+      this.lbxAusgabeVon.Size = new System.Drawing.Size(130, 173);
+      this.lbxAusgabeVon.TabIndex = 0;
       // 
       // btnGo
       // 
-      this.btnGo.Location = new System.Drawing.Point(476, 97);
+      this.btnGo.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnGo.Location = new System.Drawing.Point(245, 10);
       this.btnGo.Name = "btnGo";
       this.btnGo.Size = new System.Drawing.Size(75, 23);
-      this.btnGo.TabIndex = 10;
+      this.btnGo.TabIndex = 3;
       this.btnGo.Text = "Go";
       this.btnGo.UseVisualStyleBackColor = true;
       this.btnGo.Click += new System.EventHandler(this.BtnGo_Click);
+      // 
+      // lbxAusgabeNach
+      // 
+      this.lbxAusgabeNach.FormattingEnabled = true;
+      this.lbxAusgabeNach.Location = new System.Drawing.Point(418, 246);
+      this.lbxAusgabeNach.Name = "lbxAusgabeNach";
+      this.lbxAusgabeNach.Size = new System.Drawing.Size(120, 173);
+      this.lbxAusgabeNach.TabIndex = 0;
+      // 
+      // lbxZeitNach
+      // 
+      this.lbxZeitNach.FormattingEnabled = true;
+      this.lbxZeitNach.Location = new System.Drawing.Point(292, 246);
+      this.lbxZeitNach.Name = "lbxZeitNach";
+      this.lbxZeitNach.Size = new System.Drawing.Size(120, 173);
+      this.lbxZeitNach.TabIndex = 0;
+      // 
+      // lbxZeitVon
+      // 
+      this.lbxZeitVon.FormattingEnabled = true;
+      this.lbxZeitVon.Location = new System.Drawing.Point(16, 246);
+      this.lbxZeitVon.Name = "lbxZeitVon";
+      this.lbxZeitVon.Size = new System.Drawing.Size(120, 173);
+      this.lbxZeitVon.TabIndex = 4;
+      // 
+      // btnClear
+      // 
+      this.btnClear.Location = new System.Drawing.Point(245, 48);
+      this.btnClear.Name = "btnClear";
+      this.btnClear.Size = new System.Drawing.Size(75, 23);
+      this.btnClear.TabIndex = 5;
+      this.btnClear.Text = "Reset";
+      this.btnClear.UseVisualStyleBackColor = true;
+      this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
       // 
       // TransportApp
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
+      this.Controls.Add(this.btnClear);
+      this.Controls.Add(this.lbxZeitVon);
+      this.Controls.Add(this.lbxZeitNach);
+      this.Controls.Add(this.lbxAusgabeNach);
       this.Controls.Add(this.btnGo);
-      this.Controls.Add(this.lbxAusgabe);
-      this.Controls.Add(this.txtTime);
-      this.Controls.Add(this.dateTimePicker1);
+      this.Controls.Add(this.lbxAusgabeVon);
       this.Controls.Add(this.txtNach);
       this.Controls.Add(this.txtVon);
-      this.Controls.Add(this.label5);
-      this.Controls.Add(this.label4);
       this.Controls.Add(this.label3);
       this.Controls.Add(this.label2);
-      this.Controls.Add(this.label1);
+      this.MaximizeBox = false;
+      this.MinimizeBox = false;
       this.Name = "TransportApp";
       this.Text = "TransportApp";
       this.ResumeLayout(false);
@@ -156,17 +154,15 @@
     }
 
     #endregion
-
-    private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label label3;
-    private System.Windows.Forms.Label label4;
-    private System.Windows.Forms.Label label5;
     private System.Windows.Forms.TextBox txtVon;
     private System.Windows.Forms.TextBox txtNach;
-    private System.Windows.Forms.DateTimePicker dateTimePicker1;
-    private System.Windows.Forms.TextBox txtTime;
-    private System.Windows.Forms.ListBox lbxAusgabe;
+    private System.Windows.Forms.ListBox lbxAusgabeVon;
     private System.Windows.Forms.Button btnGo;
+    private System.Windows.Forms.ListBox lbxAusgabeNach;
+    private System.Windows.Forms.ListBox lbxZeitNach;
+    private System.Windows.Forms.ListBox lbxZeitVon;
+    private System.Windows.Forms.Button btnClear;
   }
 }
