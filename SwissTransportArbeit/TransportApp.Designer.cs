@@ -79,7 +79,7 @@
       // lbxAusgabeVon
       // 
       this.lbxAusgabeVon.FormattingEnabled = true;
-      this.lbxAusgabeVon.Location = new System.Drawing.Point(156, 246);
+      this.lbxAusgabeVon.Location = new System.Drawing.Point(142, 102);
       this.lbxAusgabeVon.Name = "lbxAusgabeVon";
       this.lbxAusgabeVon.Size = new System.Drawing.Size(130, 173);
       this.lbxAusgabeVon.TabIndex = 0;
@@ -98,7 +98,7 @@
       // lbxAusgabeNach
       // 
       this.lbxAusgabeNach.FormattingEnabled = true;
-      this.lbxAusgabeNach.Location = new System.Drawing.Point(418, 246);
+      this.lbxAusgabeNach.Location = new System.Drawing.Point(526, 102);
       this.lbxAusgabeNach.Name = "lbxAusgabeNach";
       this.lbxAusgabeNach.Size = new System.Drawing.Size(120, 173);
       this.lbxAusgabeNach.TabIndex = 0;
@@ -106,7 +106,7 @@
       // lbxZeitNach
       // 
       this.lbxZeitNach.FormattingEnabled = true;
-      this.lbxZeitNach.Location = new System.Drawing.Point(292, 246);
+      this.lbxZeitNach.Location = new System.Drawing.Point(400, 102);
       this.lbxZeitNach.Name = "lbxZeitNach";
       this.lbxZeitNach.Size = new System.Drawing.Size(120, 173);
       this.lbxZeitNach.TabIndex = 0;
@@ -114,7 +114,7 @@
       // lbxZeitVon
       // 
       this.lbxZeitVon.FormattingEnabled = true;
-      this.lbxZeitVon.Location = new System.Drawing.Point(16, 246);
+      this.lbxZeitVon.Location = new System.Drawing.Point(16, 102);
       this.lbxZeitVon.Name = "lbxZeitVon";
       this.lbxZeitVon.Size = new System.Drawing.Size(120, 173);
       this.lbxZeitVon.TabIndex = 4;
