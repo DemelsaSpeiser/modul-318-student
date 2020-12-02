@@ -22,6 +22,10 @@ namespace SwissTransportArbeit
     string Von;
     // Variable für Endstation
     string Nach;
+    // Variable für Datum
+    string Datum;
+    // Variable für Zeit
+    string Zeit;
     // Variablen für Verbindung
     Transport Datenzugriff;
     Connections Verbindungen;
@@ -30,25 +34,63 @@ namespace SwissTransportArbeit
     private void BtnGo_Click(object sender, EventArgs e)
     {
       // Variablendefiniton für Von
-      Von = Convert.ToString(txtVon.Text);
-      // Variablendefinition für Nach
-      Nach = Convert.ToString(txtNach.Text);
-      // Instanziierung
-      Datenzugriff = new Transport();
-      Verbindungen = Datenzugriff.GetConnections(Von, Nach);
-
-      // Ausgabe der Verbindung
-      for(int i = 0; i < 4; i++)
+      // Fehler Meldung
+      if (cbxVon.Text == "" && cbxNach.Text == "")
       {
-        // Mithilfe von i auf die einzelnen Verbindungen zugreifen
-        aktVerbindung = Verbindungen.ConnectionList[i];
-        // Ausgabe
-        lbxAusgabeVon.Items.Add(aktVerbindung.From.Station.Name); // Startpunkt
-        lbxAusgabeNach.Items.Add(aktVerbindung.To.Station.Name);  // Zielpunkt
-        lbxZeitVon.Items.Add(Convert.ToDateTime(aktVerbindung.From.Departure).ToString("HH:mm")); // Abfahrtszeit
-        lbxZeitNach.Items.Add(Convert.ToDateTime(aktVerbindung.To.Arrival).ToString("HH:mm"));    // Ankunftszeit
+        string message = "Bitte überprüfen Sie Ihre Eingaben.";
+        string title = "Eingabefehler";
+        MessageBox.Show(message, title);
+        return;
       }
+      else if (cbxNach.Text == "")
+      {
+        string message = "Bitte geben sie einen Stationsname bei Nach ein.";
+        string title = "Eingabefehler Nach";
+        MessageBox.Show(message, title);
+        return;
+      }
+      else if (cbxVon.Text == "")
+      {
+        string message = "Bitte geben sie einen Stationsname bei Von ein";
+        string title = "Eingabefehler Von";
+        MessageBox.Show(message, title);
+        return;
+      }
+      else
+      {
+        // Textfeld 
+        Von = Convert.ToString(cbxVon.Text);
+        Nach = Convert.ToString(cbxNach.Text);
+        // Zeit und Datum vergleichen
+        Datum = Convert.ToString(dtpDate.Value.ToString("yyyy-MM-dd"));
+        Zeit = Convert.ToString(dtpTime.Value.ToString("HH:mm"));
+        // Instanziierung
+        Datenzugriff = new Transport();
+        Verbindungen = Datenzugriff.GetConnections(Von, Nach, Datum, Zeit);
 
+        if (Verbindungen.ConnectionList == null || Verbindungen.ConnectionList.Count == 0)
+        {
+          string message = "Keine mögliche Verbindungen. Bitte wählen Sie ein anderes Datum.";
+          string title = "Datumsfehler";
+          MessageBox.Show(message, title);
+          return;
+        }
+        else
+        {
+          // Ausgabe der Verbindung
+          for (int i = 0; i < 4; i++)
+          {
+            // Mithilfe von i auf die einzelnen Verbindungen zugreifen
+            aktVerbindung = Verbindungen.ConnectionList[i];
+            // Ausgabe
+            lbxZeitVon.Items.Add(Convert.ToDateTime(aktVerbindung.From.Departure).ToString("HH:mm"));
+            lbxAusgabeVon.Items.Add(aktVerbindung.From.Station.Name);
+
+            lbxZeitNach.Items.Add(Convert.ToDateTime(aktVerbindung.To.Arrival).ToString("HH:mm"));
+            lbxAusgabeNach.Items.Add(aktVerbindung.To.Station.Name);
+          }
+        }
+      }
     }
 
     // Eingaben bereinigen
@@ -58,8 +100,29 @@ namespace SwissTransportArbeit
       lbxAusgabeVon.Items.Clear();
       lbxZeitNach.Items.Clear();
       lbxZeitVon.Items.Clear();
-      txtVon.ResetText();
-      txtNach.ResetText();
+      cbxVon.ResetText();
+      cbxNach.ResetText();
+      dtpDate.ResetText();
+      dtpTime.ResetText();
+
+
+    }
+
+    // Zeit und Datum auf aktuell stellen
+    private void BtnJetzt_Click(object sender, EventArgs e)
+    {
+      dtpDate.ResetText();
+      dtpTime.ResetText();
+    }
+
+    private void BtnAddVon_Click(object sender, EventArgs e)
+    {
+      cbxVon.Items.Add(cbxVon.Text);
+    }
+
+    private void BtnAddNach_Click(object sender, EventArgs e)
+    {
+      cbxNach.Items.Add(cbxNach.Text);
     }
   }
 }
